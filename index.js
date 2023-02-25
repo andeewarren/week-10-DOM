@@ -1,7 +1,8 @@
 let id = 0;
+let createdDate = new Date();
 
 document.getElementById('submit').addEventListener('click', () => {
-    let createdDate = new Date();
+    
     let table = document.getElementById('list');
     let row = table.insertRow(1); //position one = row 2
     row.setAttribute('id', `item-${id}`);
@@ -11,6 +12,7 @@ document.getElementById('submit').addEventListener('click', () => {
     row.insertCell(3).innerHTML = document.getElementById('amount-due').value;
     let actions = row.insertCell(4);
     actions.appendChild(createPaidButton(id++));
+
     document.getElementById('new-bill').value = '';
 });
 
@@ -24,4 +26,4 @@ function createPaidButton(id) {
       elementPaid.setAttribute("class", "table-success");
     };
     return btn;
-}
+};
